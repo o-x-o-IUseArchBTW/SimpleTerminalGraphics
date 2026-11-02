@@ -1,4 +1,4 @@
-#include "STG.h"
+#include "STG.hpp"
 #include <iostream>
 
 using std::string, std::cout, std::cin, std::getline;
