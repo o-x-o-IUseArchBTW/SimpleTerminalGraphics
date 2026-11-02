@@ -23,12 +23,32 @@ void MakeDrawMatrix(int X, int Y, char Char);
 void DrawMatrix();
 
 int main() {
-	int X = 0;
-	int Y = 0;
+	int X = 15;
+	int Y = 8;
+	int Stop = 0;
 	char Char = '#';
-
-	MakeDrawMatrix(X, Y, Char);
-	DrawMatrix();
+	do {
+		cout << "enter new X (0-15) : ";
+		cin >> X;
+		if (X > 15) {
+			X = 15;
+		}
+		else if (X < 0) {
+			X = 0;
+		}
+			cout << "enter new Y (0-15) : ";
+		cin >> Y;
+		if (Y > 15) {
+			Y = 15;
+		}
+		else if (Y < 0) {
+			Y = 0;
+		}
+		MakeDrawMatrix(X, Y, Char);
+		DrawMatrix();
+		cout << "Stop? enter 1 to stop and 0 to continue : ";
+		cin >> Stop;
+	} while (!Stop == 1);
 }
 
 void MakeDrawMatrix(int X, int Y, char Char) {
@@ -70,7 +90,7 @@ void MakeDrawMatrix(int X, int Y, char Char) {
 }
 
 void DrawMatrix() {
-	cout << "\x1b[H";
+	cout << "\x1b[2J" << "\x1b[H";
 	cout << DrawPlot_0[0] << DrawPlot_0[1] << DrawPlot_0[2] << DrawPlot_0[3] << DrawPlot_0[4] << DrawPlot_0[4] << DrawPlot_0[5] << DrawPlot_0[6] << DrawPlot_0[7] << DrawPlot_0[8] << DrawPlot_0[9] << DrawPlot_0[10] << DrawPlot_0[11] << DrawPlot_0[12] << DrawPlot_0[13] << DrawPlot_0[14] << DrawPlot_0[15] << '\n';
 	cout << DrawPlot_1[0] << DrawPlot_1[1] << DrawPlot_1[2] << DrawPlot_1[3] << DrawPlot_1[4] << DrawPlot_1[4] << DrawPlot_1[5] << DrawPlot_1[6] << DrawPlot_1[7] << DrawPlot_1[8] << DrawPlot_1[9] << DrawPlot_1[10] << DrawPlot_1[11] << DrawPlot_1[12] << DrawPlot_1[13] << DrawPlot_1[14] << DrawPlot_1[15] << '\n';
 	cout << DrawPlot_2[0] << DrawPlot_2[1] << DrawPlot_2[2] << DrawPlot_2[3] << DrawPlot_2[4] << DrawPlot_2[4] << DrawPlot_2[5] << DrawPlot_2[6] << DrawPlot_2[7] << DrawPlot_2[8] << DrawPlot_2[9] << DrawPlot_2[10] << DrawPlot_2[11] << DrawPlot_2[12] << DrawPlot_2[13] << DrawPlot_2[14] << DrawPlot_2[15] << '\n';
