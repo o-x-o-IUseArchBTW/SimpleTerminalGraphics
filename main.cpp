@@ -1,8 +1,8 @@
 #include <iostream>
-#include "cool.hpp"
+#include "Library/STG.hpp"
 
 using std::string, std::cout, std::cin, std::getline;
-
+using namespace STG;
 int main() {
 	int X = 15;
 	int Y = 8;
@@ -22,9 +22,9 @@ int main() {
 		cin.ignore(10000, '\n');
 
 		cout << "enter new string text (under 40 chars recomended!) : ";
-		STG::getline(cin, String);
+		getline(cin, String);
 
-		STG::MakeStringArray(StringPosition, String);
+		MakeStringArray(StringPosition, String);
 
 		cout << "enter new Charecter(only works for single charecters) : ";
 		cin >> Char;
@@ -47,8 +47,8 @@ int main() {
 			Y = 0;
 		}
 
-		STG::MakeDrawMatrix(X, Y, Char);
-		STG::DrawMatrix();
+		MakeDrawMatrix(X, Y, Char);
+		DrawMatrix();
 
 		cout << "Stop? enter 1 to stop and 0 to continue : ";
 		cin >> Stop;
