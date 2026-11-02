@@ -1,30 +1,7 @@
 #include <iostream>
+#include "cool.hpp"
 
 using std::string, std::cout, std::cin, std::getline;
-
-char DrawPlot[16][16] = {
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
-};
-string TypePlot[] = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
-
-void MakeDrawMatrix(int X, int Y, char Char);
-void DrawMatrix();
-void MakeStringArray(int Position, string String);
 
 int main() {
 	int X = 15;
@@ -45,9 +22,9 @@ int main() {
 		cin.ignore(10000, '\n');
 
 		cout << "enter new string text (under 40 chars recomended!) : ";
-		getline(cin, String);
+		STG::getline(cin, String);
 
-		MakeStringArray(StringPosition, String);
+		STG::MakeStringArray(StringPosition, String);
 
 		cout << "enter new Charecter(only works for single charecters) : ";
 		cin >> Char;
@@ -70,28 +47,10 @@ int main() {
 			Y = 0;
 		}
 
-		MakeDrawMatrix(X, Y, Char);
-		DrawMatrix();
+		STG::MakeDrawMatrix(X, Y, Char);
+		STG::DrawMatrix();
 
 		cout << "Stop? enter 1 to stop and 0 to continue : ";
 		cin >> Stop;
 	} while (!Stop == 1);
-}
-
-void MakeDrawMatrix(int X, int Y, char Char) {
-	DrawPlot[Y][X] = Char;
-}
-
-void DrawMatrix() {
-	cout << "\x1b[2J" << "\x1b[H";
-	for (int y = 0;y <= 15; ++y) {
-		for (int x = 0;x <= 15; ++x) {
-			cout << DrawPlot[y][x];
-		}
-		cout << TypePlot[y] << '\n';
-	}
-}
-
-void MakeStringArray(int Position, string String) {
-	TypePlot[Position] = String;
 }
