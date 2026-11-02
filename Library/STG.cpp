@@ -41,3 +41,4 @@ namespace STG {
 	void MakeStringArray(int Position, string String) {
 		TypePlot[Position] = String;
 	}
+}
