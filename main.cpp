@@ -28,6 +28,8 @@ int main() {
 	int Stop = 0;
 	char Char = '#';
 	do {
+		cout << "enter new Charecter(only works for single charecters) :";
+		cin >> Char;
 		cout << "enter new X (0-15) : ";
 		cin >> X;
 		if (X > 15) {
