@@ -4,8 +4,8 @@
 using std::string, std::cout, std::cin, std::getline;
 using namespace STG;
 int main() {
-	int X = 15;
-	int Y = 8;
+	int X = 0;
+	int Y = 0;
 	int Stop = 0;
 	char Char = '#';
 	int StringPosition;
@@ -21,7 +21,7 @@ int main() {
 		}
 		cin.ignore(10000, '\n');
 
-		cout << "enter new string text (under 40 chars recomended!) : ";
+		cout << "enter new string text (under 80 chars recomended!) : ";
 		getline(cin, String);
 
 		MakeStringArray(StringPosition, String);
